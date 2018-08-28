@@ -1,0 +1,38 @@
+
+
+.sideBarComponent{
+    height: 100%;
+    background: linear-gradient(#a8c0ff, #3f2b96, #f7797d);
+    width: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+
+
+}
+
+ul > li:hover{
+
+    color: coral;
+
+}
+
+ul.dropdown-menu > li{
+
+    color: black;
+
+}
+
+.qriTotal{
+    color: #000;
+    font-size: 18px;
+    font-family: "Times New Roman";
+    padding: 0px 0px 0px 10px;
+
+}
+
+.qriTotal:hover{
+
+    background-color: orange;
+}

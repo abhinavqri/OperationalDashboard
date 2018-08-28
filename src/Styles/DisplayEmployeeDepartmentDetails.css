@@ -1,0 +1,41 @@
+/*span.fteLabel, span.contLabel{
+
+
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: deepskyblue;
+
+}*/
+
+div.ftecontLabel{
+    width: 850px;
+    margin: 0 auto;
+}
+
+.employeeClassButton{
+
+    margin: 10px 0px 0px 15px;
+
+}
+
+.projectName{
+   // background: linear-gradient( #ffdd15, #FFE000);
+    width: auto;
+    height: auto;
+    color: dodgerblue;
+  //  text-decoration: underline black;
+   // border: 2px solid black;
+    padding: 4px;
+    font-family: "Bookman Old Style";
+
+
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.styleFonts{
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

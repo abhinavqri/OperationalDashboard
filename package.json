@@ -1,0 +1,42 @@
+{
+  "name": "ceo-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
+    "animate.css": "^3.6.1",
+    "axios": "^0.17.1",
+    "bootstrap": "^4.1.0",
+    "bower": "^1.8.4",
+    "chart.js": "^2.3.0",
+    "csshake": "^1.5.3",
+    "font-awesome": "^4.7.0",
+    "highcharts": "^6.1.0",
+    "hover.css": "^2.2.1",
+    "jquery": "^3.3.1",
+    "jwt-decode": "^2.2.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.3.1",
+    "react-animated-css": "^1.0.2",
+    "react-chartjs-2": "^2.7.2",
+    "react-dom": "^16.3.1",
+    "react-highcharts": "^16.0.2",
+    "react-icons": "^2.2.7",
+    "react-orgchart": "^1.0.5",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "reactstrap": "^5.0.0-alpha.4",
+    "redux": "^3.7.2",
+    "redux-persist": "^5.9.1",
+    "redux-registry": "^2.0.1",
+    "redux-thunk": "^2.2.0",
+    "url-loader": "^0.6.2"
+  },
+  "scripts": {
+    "start": "set PORT=3006 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

@@ -1,0 +1,55 @@
+.searchEmpButton,.searchDepButton{
+    width: 100%;
+    background-color: #343a40 !important;
+    margin-bottom: 1px;
+    border: black;
+    text-align: left;
+
+}
+
+input{
+    width: 100%;
+}
+
+.fa-quora{
+    color: red;
+}
+
+
+span.departmentsMainHeading{
+
+    font-weight: bold;
+    font-family: "Times New Roman";
+    font-size: 20px;
+
+}
+
+
+
+
+span.departmentsMainHeading, li, li>.searchDepButton{
+
+
+    color: yellow;
+    -moz-border-radius-bottomright:15px ;
+    -moz-border-radius-topright:15px ;
+    border-radius-bottomright:15px ;
+    border-radius-topright:15px ;
+
+}
+
+span.departmentsMainHeading:hover, li:hover{
+
+    color: yellow;
+    text-decoration: none;
+    width: 95%;
+    height: 120%;
+
+
+}
+
+input:hover{
+
+    background-color: dodgerblue;
+
+}

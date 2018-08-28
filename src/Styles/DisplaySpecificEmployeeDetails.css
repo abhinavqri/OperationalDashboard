@@ -1,0 +1,51 @@
+.backButton{
+
+    width: 75px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: normal;
+
+}
+
+.displayTotalHours{
+
+    float: right;
+    margin-right: 18%;
+    border: 2px solid black;
+    color: #343a40;
+    font-size: 20px;
+    background: linear-gradient( #20BDFF, #A5FECB);
+
+
+}
+
+div.specificEmployee{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0px 10px 0px 10px;
+}
+
+
+div.specificEmployee > p{
+
+    margin: 0px 25px 0px 25px;
+
+
+}
+
+.employeeStatusDetails{
+
+    display: grid;
+   grid-column: auto;
+
+}
+
+.employeeStatusDetailsImg, .employeeStatusDetailsTable{
+
+    float:left;
+
+
+
+}

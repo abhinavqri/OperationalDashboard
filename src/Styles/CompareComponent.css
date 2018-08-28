@@ -1,0 +1,56 @@
+input[type="checkbox"] {
+    width: 25px;
+    height: 20px;
+    margin: 0px 0px 0px 10px;
+}
+
+.compareComponentDataWrapper{
+    display: flex;
+
+
+}
+
+.compareComponent{
+
+    display: flex;
+    width: 100%;
+    height: auto;
+    border: 2px dashed black;
+    background-color: yellow;
+    height: auto;
+
+}
+
+.monthlyWeeklyDivision{
+    margin-left: 35px;
+}
+
+label, p.dateLabel{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Apple Color Emoji";
+    font-weight: bold;
+}
+
+.quarterlyDivision,.weeklyDivision{
+
+
+}
+
+hr{
+    border: 2px solid black;
+}
+
+.compareButton{
+
+    width: 125px !important;
+    height: 35px !important;
+    font-family: -apple-system;
+    font-size: 1.3rem !important;
+    margin: 30px 30px 30px 200px;
+}
+
+.collapseToggleButton{
+    margin: 10px 10px 10px 10px;
+
+}

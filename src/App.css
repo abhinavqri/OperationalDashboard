@@ -1,0 +1,31 @@
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+
+.App-title {
+  font-size: 2.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.appSectionHolder{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  font-size: medium;
+
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+p,span,div,a{
+    font-size: 16px;
+}

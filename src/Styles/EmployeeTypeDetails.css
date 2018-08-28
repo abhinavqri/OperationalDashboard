@@ -1,0 +1,23 @@
+.displayProjName{
+
+    background-color: yellow;
+    width:auto;
+    height: auto;
+    float: right;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px black;
+    border: 2px solid black;
+    padding: 4px;
+    font-family: "Bookman Old Style";
+    margin: 5px 20px;
+
+}
+
+.stackedAreaGraphs{
+
+    margin: 20px 30px ;
+    width: 100%;
+    padding: 10px;
+    height: 500px;
+
+}
