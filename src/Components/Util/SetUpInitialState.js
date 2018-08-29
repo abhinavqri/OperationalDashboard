@@ -2,6 +2,7 @@
 export const AppInitialState = {
     requiredInformation:{
       isSearchEmployeeRequested:false,
+      isQTotalRequested: true,
        projectDetails:{
              isRequested:true,
              projects:{

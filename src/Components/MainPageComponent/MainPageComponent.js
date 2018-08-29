@@ -15,6 +15,7 @@ class MainPageComponent extends Component {
         this.displaySpecificDepartmentDetails = this.displaySpecificDepartmentDetails.bind(this);
         this.getUpdatedStateForDepartment = this.getUpdatedStateForDepartment.bind(this);
         this.displayAllDepartments = this.displayAllDepartments.bind(this);
+        this.displayAllProjects = this.displayAllProjects.bind(this);
         this.specificProjectsOrDepartmentsCheck = this.specificProjectsOrDepartmentsCheck.bind(this);
         this.displaySpecificEmployeeTypeDetails = this.displaySpecificEmployeeTypeDetails.bind(this);
     }
@@ -122,13 +123,27 @@ class MainPageComponent extends Component {
      setProjectsWithDefault(requiredInfo);
      setDepartmentsWithDefault(requiredInfo);
      setEmployeeTypeWithDefault(requiredInfo);
+     requiredInfo.isQTotalRequested = false;
      requiredInfo.departmentDetails.isRequested = true;
      requiredInfo.departmentDetails.departments.all = true;
      this.setState((prevState)=> { return { ...prevState, requiredInformation:requiredInfo}  })
 
    }
+
+    displayAllProjects(){
+        let requiredInfo = AppInitialStateWithDefaultValues.requiredInformation;
+        setProjectsWithDefault(requiredInfo);
+        setDepartmentsWithDefault(requiredInfo);
+        setEmployeeTypeWithDefault(requiredInfo);
+        requiredInfo.isQTotalRequested = false;
+        requiredInfo.projectDetails.isRequested = true;
+        requiredInfo.projectDetails.projects.all = true;
+        this.setState((prevState)=> { return { ...prevState, requiredInformation:requiredInfo}  })
+
+    }
    displaySpecificEmployeeTypeDetails(employeeType){
     let requiredInfo = AppInitialStateWithDefaultValues.requiredInformation;
+    requiredInfo.isQTotalRequested = false;
      setProjectsWithDefault(requiredInfo);
      setDepartmentsWithDefault(requiredInfo);
      requiredInfo.employeeTypeDetails.isRequested = true;
@@ -156,6 +171,7 @@ class MainPageComponent extends Component {
                    <SideBarComponent displaySpecificProjectDetails = { this.displaySpecificProjectDetails}
                                      displaySpecificDepartmentDetails = { this.displaySpecificDepartmentDetails}
                                      allDepartments = {this.displayAllDepartments}
+                                     allProjects = {this.displayAllProjects}
                                      displaySpecificEmployeeTypeDetails={this.displaySpecificEmployeeTypeDetails}/>
                    {this.state.requiredInformation.isSearchEmployeeRequested ?
                      <DisplaySpecificEmployeeDetails employeeId = {this.props.selectedEmployee} allEmployees = {null}  isBackButtonDisabled = { true} />

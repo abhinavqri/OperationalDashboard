@@ -9,6 +9,7 @@ class SideBarComponent extends Component{
         this.displaySpecificProjectDetails = this.displaySpecificProjectDetails.bind(this);
         this.displaySpecificDepartmentDetails = this.displaySpecificDepartmentDetails.bind(this);
         this.displayAllDepartments = this.displayAllDepartments.bind(this);
+        this.displayAllProjects = this.displayAllProjects.bind(this);
         this.displaySpecificEmployeeTypeDetails = this.displaySpecificEmployeeTypeDetails.bind(this);
     }
 
@@ -19,7 +20,10 @@ class SideBarComponent extends Component{
         this.props.displaySpecificDepartmentDetails(departmentName);
     }
     displayAllDepartments(){
-      this.props.allDepartments();
+        this.props.allDepartments();
+    }
+    displayAllProjects(){
+        this.props.allProjects();
     }
     displaySpecificEmployeeTypeDetails(employeeType){
         this.props.displaySpecificEmployeeTypeDetails(employeeType);
@@ -36,7 +40,7 @@ class SideBarComponent extends Component{
                     <p className="nav-link-text animated slideInRight qriTotal"> QRI TOTAL </p>
                 </a>
                 <ul className="sidenav-third-level collapse" id="qtProjects">
-                    <li> <Projects_SideBar  specificProject = {this.displaySpecificProjectDetails} /> </li>
+                    <li> <Projects_SideBar  specificProject = {this.displaySpecificProjectDetails} allProjects = {this.displayAllProjects} /> </li>
                     <li> <Department_SideBar specificDepartment = { this.displaySpecificDepartmentDetails } allDepartments = {this.displayAllDepartments}/> </li>
                     <li> <EmployeeType_SideBar specificEmployeeType = { this.displaySpecificEmployeeTypeDetails } /> </li>
                     

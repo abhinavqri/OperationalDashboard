@@ -155,15 +155,24 @@ export default class  DisplayProjectDetails extends React.Component{
 
 
         let totalEmployeesForAllProjects, totalEmployeesForAllDepartments,fteEmployeeHours = 0,contEmployeeHours = 0, fteEmployees,contEmployees,totalEmployees = [];
+        let totalEmployeesForAllProjectsAndDepartments;
         let currentMonthHours, previousMonthHours;
         currentMonthHours = calculateCurrentMonthHours(this.props.derievedData);
         previousMonthHours = calculatePreviousMonthHours(this.props.derievedData);
         console.log("currentMonthHours currentMonthHours", currentMonthHours);
         if(!this.state.isCompareDataRequested){
-            if(this.props.isProjectDetailsRequested){
+            if(this.props.isQTotalRequested){
+                console.log("isQTotalRequested isQTotalRequested isQTotalRequested");
                 totalEmployeesForAllProjects = this.getTotalHoursOfSpecificProject();
+                totalEmployeesForAllDepartments = this.getTotalHoursOfSpecificDepartment();
+                totalEmployeesForAllProjectsAndDepartments = totalEmployeesForAllProjects.concat(totalEmployeesForAllDepartments);
                 for( let project in this.props.derievedData ){
                     totalEmployees = totalEmployees.concat(this.getPeriodData(this.state.isPeriodDataRequested, this.state.isYearToDateDataRequested, this.props.derievedData[project], this.state.periodData));
+                }
+
+                for( let dept in this.props.derievedData ){
+                    totalEmployees = totalEmployees.concat(this.getPeriodData(this.state.isPeriodDataRequested, this.state.isYearToDateDataRequested, this.props.derievedData[dept], this.state.periodData));
+
                 }
                 fteEmployees = totalFTEData(totalEmployees);
                 contEmployees = totalContData(totalEmployees);
@@ -171,21 +180,34 @@ export default class  DisplayProjectDetails extends React.Component{
                 contEmployees.forEach(emp => [ contEmployeeHours += emp.hours  ] )
             }
             else{
-                totalEmployeesForAllDepartments = this.getTotalHoursOfSpecificDepartment()
-                for( let dept in this.props.derievedData ){
-                    totalEmployees = totalEmployees.concat(this.getPeriodData(this.state.isPeriodDataRequested, this.state.isYearToDateDataRequested, this.props.derievedData[dept], this.state.periodData));
-
+                if(this.props.isProjectDetailsRequested){
+                    totalEmployeesForAllProjects = this.getTotalHoursOfSpecificProject();
+                    for( let project in this.props.derievedData ){
+                        totalEmployees = totalEmployees.concat(this.getPeriodData(this.state.isPeriodDataRequested, this.state.isYearToDateDataRequested, this.props.derievedData[project], this.state.periodData));
+                    }
+                    fteEmployees = totalFTEData(totalEmployees);
+                    contEmployees = totalContData(totalEmployees);
+                    fteEmployees.forEach(emp => [ fteEmployeeHours += emp.hours  ] )
+                    contEmployees.forEach(emp => [ contEmployeeHours += emp.hours  ] )
                 }
+                else{
+                    totalEmployeesForAllDepartments = this.getTotalHoursOfSpecificDepartment()
+                    for( let dept in this.props.derievedData ){
+                        totalEmployees = totalEmployees.concat(this.getPeriodData(this.state.isPeriodDataRequested, this.state.isYearToDateDataRequested, this.props.derievedData[dept], this.state.periodData));
 
-                fteEmployees = totalFTEData(totalEmployees);
-                contEmployees = totalContData(totalEmployees);
-                fteEmployees.forEach(emp => [ fteEmployeeHours += emp.hours  ] )
-                contEmployees.forEach(emp => [ contEmployeeHours += emp.hours  ] )
+                    }
+
+                    fteEmployees = totalFTEData(totalEmployees);
+                    contEmployees = totalContData(totalEmployees);
+                    fteEmployees.forEach(emp => [ fteEmployeeHours += emp.hours  ] )
+                    contEmployees.forEach(emp => [ contEmployeeHours += emp.hours  ] )
+                }
             }
         }
 
 
-       console.log("the state issss ",this.state);
+       console.log("the state  totalEmployeesForAllProjects issss ",totalEmployeesForAllProjects);
+        console.log("the state totalEmployeesForAllDepartments issss ",totalEmployeesForAllDepartments);
         return (
             <div className="container-fluid displayProjRow">
                 <SelectionComponent displayPeriodData={this.displayPeriodData} displayYearToDateData = {this.displayYearToDateData} />
@@ -195,8 +217,13 @@ export default class  DisplayProjectDetails extends React.Component{
 
                { this.state.isCompareDataRequested ? <DisplayComparedData className="displayCompareData col" isProjectDetailsRequested = { this.props.isProjectDetailsRequested }
                                                                           compareData = {this.state.compareData}  employeeData = { this.props.derievedData }/>
-                   : ( this.props.isProjectDetailsRequested? (<div className="container" ><PieChartSpecificEmployee pieData={totalEmployeesForAllProjects} isPercentageRequested = { true }  label = { label } /></div>)
-                       :(<div className="container"><PieChartSpecificEmployee className="col" pieData={totalEmployeesForAllDepartments} isPercentageRequested = { true } label = { label } /></div>) )}
+                   : ( this.props.isQTotalRequested
+                       ? (<div className="container" ><PieChartSpecificEmployee pieData={totalEmployeesForAllProjectsAndDepartments} isPercentageRequested = { true }  label = { label } /></div>)
+
+                          :  ( this.props.isProjectDetailsRequested? (<div className="container" ><PieChartSpecificEmployee pieData={totalEmployeesForAllProjects} isPercentageRequested = { true }  label = { label } /></div>)
+                       :(<div className="container"><PieChartSpecificEmployee className="col" pieData={totalEmployeesForAllDepartments} isPercentageRequested = { true } label = { label } /></div>) )
+                     )
+               }
 
                { this.state.isCompareDataRequested ? null : <TotalEmployeeHours className="col"  fteEmployeeHours = { fteEmployeeHours }  contEmployeeHours = { contEmployeeHours } /> }
 
@@ -238,7 +265,7 @@ class DisplaySpecificProject extends React.Component{
         return uniqueEmployees;
     }
     render(){
-
+        console.log("projectInfo projectInfo projectInfo",this.props.projectInfo);
         var fteDetails = EmployeeCountByProject(totalFTEData(this.props.projectInfo).filter( emp => emp.date_year === new Date().getFullYear() ))
         var fteWorkingHours = fteDetails.totalWorkingHours;
         var contractorsDetails = EmployeeCountByProject(totalContData(this.props.projectInfo).filter( emp => emp.date_year === new Date().getFullYear() ))

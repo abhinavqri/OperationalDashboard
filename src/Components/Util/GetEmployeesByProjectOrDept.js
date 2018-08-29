@@ -32,6 +32,7 @@ const employeesByDepartment = (allProjectData, data) =>{
     departmentList.forEach(department =>{
       if ( employee.homeDepartment.toLowerCase() === department.toLowerCase()){
         if(employee.homeDepartment.toLowerCase() === employee.department.toLowerCase()  && ( employee.project === "0" || employee.project === "Other Technical" || employee.project === "NonBillable - Other Tech") ){
+
             allProjectData[department].push(employee);
         }
       }

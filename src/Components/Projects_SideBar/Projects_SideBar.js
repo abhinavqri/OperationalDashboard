@@ -5,9 +5,14 @@
       constructor(props){
           super(props);
           this.displaySpecificProjectDetails = this.displaySpecificProjectDetails.bind(this);
+          this.displayAllProjects = this.displayAllProjects.bind(this);
       }
       displaySpecificProjectDetails(event){
         this.props.specificProject(event.target.name);
+      }
+
+      displayAllProjects(){
+          this.props.allProjects();
       }
       render() {
           return (
@@ -15,7 +20,7 @@
                   <a className="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
                       <i className="fa fa-fw fa-2x fa-dollar  rotate-in-ver m-2"></i>
 
-                      <span className="nav-link-text projectsMainHeading">Billable</span>
+                      <span className="nav-link-text projectsMainHeading" onClick={ this.displayAllProjects} >Billable</span>
                   </a>
                   <ul className="sidenav-second-level collapse out" id="collapseExamplePages">
                       <li><input type="button" className=" searchEmpButton" name= "alpha" value="ALPHA"  onClick={this.displaySpecificProjectDetails} /> </li>

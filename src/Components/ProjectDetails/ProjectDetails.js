@@ -19,16 +19,29 @@ displaySpecificProject(projectName, isProjectClicked){
  render() {
 
       var allProjectData = {};
-      if(this.props.isProjectDetailsRequested){
-         allProjectData = GetProjectDetails(this.props.employeeData)
-      }else{
-          allProjectData = GetDepartmentDetails(this.props.employeeData)
-      }
+
+     if(this.props.isQTotalRequested){
+
+         allProjectData = GetProjectDetails(this.props.employeeData);
+         allProjectData = {...allProjectData,...GetDepartmentDetails(this.props.employeeData)} ;
+         console.log("allProjectData allProjectData",allProjectData);
+
+         console.log("the data is", this.props.employeeData);
+     }
+     else {
+         if(this.props.isProjectDetailsRequested){
+
+             allProjectData = GetProjectDetails(this.props.employeeData);
+         }else{
+             allProjectData = GetDepartmentDetails(this.props.employeeData)
+         }
+     }
+
 
         return (
               <div>
                
-               <DisplayProjectDetails isProjectDetailsRequested={this.props.isProjectDetailsRequested} derievedData = {allProjectData}  employeeData = { this.props.employeeData }  displaySpecificProject = {this.displaySpecificProject}/>
+               <DisplayProjectDetails isQTotalRequested={this.props.isQTotalRequested} isProjectDetailsRequested={this.props.isProjectDetailsRequested} derievedData = {allProjectData}  employeeData = { this.props.employeeData }  displaySpecificProject = {this.displaySpecificProject}/>
               </div>
             );
     }

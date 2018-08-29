@@ -16,10 +16,11 @@ export default class MainContent extends React.Component {
     }
     render() {
          let checkComponentRender = this.props.requiredInfo;
+         console.log("checkComponentRender checkComponentRender ", checkComponentRender);
         return (
             <div className="mainContent">
 
-                { checkComponentRender.isSearchEmployeeRequested ? null
+                { checkComponentRender.isQTotalRequested ? <ProjectDetails displaySpecificProject={this.displaySpecificProject} isQTotalRequested={true}/>
                   : ( checkComponentRender.projectDetails.isRequested ? ( checkComponentRender.projectDetails.projects.all ? <ProjectDetails displaySpecificProject={this.displaySpecificProject} isProjectDetailsRequested={true}/> :
                     (checkComponentRender.projectDetails.projects.isAlphaDetailsRequested ? <ProjectDepartmentDetails projectName={"Alpha"} isProjectDetailsRequested = {true} /> :
                     (checkComponentRender.projectDetails.projects.isPemexusWorkDetailsRequested ? <ProjectDepartmentDetails projectName={"PEMEX US Work"} isProjectDetailsRequested = {true} /> :
