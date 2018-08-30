@@ -36,6 +36,7 @@ class MainPageComponent extends Component {
         setDepartmentsWithDefault(requiredInfo);
         setEmployeeTypeWithDefault(requiredInfo);
         requiredInfo.projectDetails.isRequested = true;
+        requiredInfo.projectDetails.projects.all = false;
         requiredInfo.projectDetails.projects.isAlphaDetailsRequested = false;
         requiredInfo.projectDetails.projects.isPemexusWorkDetailsRequested = false;
         requiredInfo.projectDetails.projects.isPemexMexicoWorkDetailsRequested = false;
@@ -44,7 +45,10 @@ class MainPageComponent extends Component {
         requiredInfo.projectDetails.projects.isPlusPetrolNorthDetailsRequested = false;
         requiredInfo.projectDetails.projects.isEcoNorthDetailsRequested = false;
         requiredInfo.projectDetails.projects.isKocnkcpDetailsRequested = false;
+        console.log("requiredInfo requiredInfo",requiredInfo);
+        console.log("the sepcific project is",specificProject);
         if(specificProject === "alpha"){
+            console.log("the sepcific alpha project is",specificProject);
             requiredInfo.projectDetails.projects.isAlphaDetailsRequested = true;
         }else if (specificProject === "pemexuswork") {
             requiredInfo.projectDetails.projects.isPemexusWorkDetailsRequested = true;
@@ -61,6 +65,7 @@ class MainPageComponent extends Component {
         }else if (specificProject === "koc-nk-cp") {
             requiredInfo.projectDetails.projects.isKocnkcpDetailsRequested = true;
         }else{
+            console.log("the sepcific alpha project is",specificProject);
             requiredInfo.projectDetails.projects.all = true;
         }
         return requiredInfo

@@ -49,7 +49,7 @@ displaySpecificProject(projectName, isProjectClicked){
 
 
 const mapStateToProps = (state)=>{
-
+  
     return { employeeData: state.data}
 
 };

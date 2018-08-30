@@ -37,7 +37,7 @@ class SideBarComponent extends Component{
             <aside className="nav-item navbar-nav navbar-sidenav navbar-dark  sideBarComponent d-none d-lg-block" data-toggle="tooltip" data-placement="right" title="" >
                 <a className="nav-link nav-link-collapse collapsed" data-toggle="collapse" data-target="#qtProjects" >
 
-                    <p className="nav-link-text animated slideInRight qriTotal"> QRI TOTAL </p>
+                    <p className="nav-link-text animated slideInRight qriTotal"> QRI TOTAL  <span class = "caret"></span></p>
                 </a>
                 <ul className="sidenav-third-level collapse" id="qtProjects">
                     <li> <Projects_SideBar  specificProject = {this.displaySpecificProjectDetails} allProjects = {this.displayAllProjects} /> </li>

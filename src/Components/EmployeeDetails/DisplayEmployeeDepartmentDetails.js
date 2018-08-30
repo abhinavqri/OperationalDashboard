@@ -155,11 +155,11 @@ import {calculateEmployeeHours} from "../Util/CalculateIndividualEmployeeTotalHo
           }
 
            else if(this.state.isYearToDateDataRequested){
-               label = label+"Year to date - "+"Aug 17th,"+ new Date().getFullYear();
+               label = label+"Year to date - "+"Aug 24th,"+ new Date().getFullYear();
            }
 
           else{
-              label = label+ "Aug 17th,"+2018
+              label = label+ "Aug 24th,"+2018
           }
 
          // var fteLabel = `FTE COUNT :   ${fteCount} employee(s)  ||  HOURS :  ${fteTotalHours}hrs `;

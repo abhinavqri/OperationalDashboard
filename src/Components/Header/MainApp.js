@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  MainPageComponent  from '../MainPageComponent/MainPageComponent';
 import  Header  from './Header';
 import LoadData from "../../Actions/EmployeeDetailsAction";
+import LoadDate from "../../Actions/EmployeeLatestDateAction";
 import LoadStatusData from "../../Actions/EmployeeStatusDetailsAction";
 import {connect} from "react-redux";
 
@@ -21,7 +22,9 @@ class MainApp extends Component {
     componentDidMount(){
         var {dispatch} = this.props;
         dispatch(LoadData());
+        //dispatch(LoadDate());
         dispatch(LoadStatusData());
+
 
     }
 

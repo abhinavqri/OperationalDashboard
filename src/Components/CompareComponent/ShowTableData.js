@@ -1,5 +1,6 @@
 import React from "react";
 import {totalContData, totalFTEData} from "../Util/TotalEmployees";
+import '../../Styles/ShowTableData.css'
 
 
 
@@ -56,7 +57,8 @@ const DisplayProjectOrDeptHours = ({data}) =>{
             <th scope="row">{data.projectOrDept}</th>
             <td> {data.currentYearInfo.toFixed(0)} hrs  </td>
             <td> {data.previousYearInfo.toFixed(0)} hrs</td>
-            <td>  {(data.previousYearInfo - data.currentYearInfo).toFixed(0)}hrs {(  data.previousYearInfo - data.currentYearInfo ) > 0 ? <i class="fa fa-arrow-up"></i> : <i class="fa fa-arrow-down"></i>  } </td>
+            <td className="hoursDifference">  {(data.previousYearInfo - data.currentYearInfo).toFixed(0)} </td>
+            <td> {(  data.previousYearInfo - data.currentYearInfo ) > 0 ? <i class="fa fa-arrow-up mr-2"></i> : <i class="fa fa-arrow-down mr-2"></i>  } </td>
         </tr>
     )
 }

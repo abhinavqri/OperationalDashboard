@@ -10,6 +10,7 @@
 
 
 
+
 }
 
 ul > li:hover{
@@ -29,6 +30,13 @@ ul.dropdown-menu > li{
     font-size: 18px;
     font-family: "Times New Roman";
     padding: 0px 0px 0px 10px;
+    background-color: khaki;
+    border-radius: 2px;
+    width: 175px;
+    margin: 0px 10px 0px 10px;
+    height: 40px;
+    text-align: center;
+    padding: 8px 0px;
 
 }
 

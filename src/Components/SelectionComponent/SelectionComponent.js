@@ -120,11 +120,11 @@ export default class SelectionComponent extends React.Component{
                     </div>
                 </div>):null}
                 <div>
-                    <button type="button" className="btn btn-primary"  onClick={this.showPeriodData}> Check Results ! </button>
+                    <button type="button" className="btn btn-warning fa fa-2x fa-pie-chart selectionComponentCheckResultsButtons"  onClick={this.showPeriodData}> Check Results ! </button>
                 </div>
 
                 <div>
-                    <button type="button" className="btn btn-primary yearToDate"  onClick={this.showYearToDateData}> Year to Date  </button>
+                    <button type="button" className="btn btn-warning yearToDate fa fa-2x fa-bar-chart selectionComponentCheckResultsButtons"  onClick={this.showYearToDateData}> Year to Date  </button>
                 </div>
 
                 </div>

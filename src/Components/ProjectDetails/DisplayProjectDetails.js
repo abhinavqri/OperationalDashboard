@@ -150,7 +150,7 @@ export default class  DisplayProjectDetails extends React.Component{
 
 
         else{
-            label = label+"Year to Date - "+"Aug 17th,"+ new Date().getFullYear();
+            label = label+"Year to Date - "+"Aug 24th,"+ new Date().getFullYear();
         }
 
 
@@ -275,11 +275,15 @@ class DisplaySpecificProject extends React.Component{
         if(!this.props.isProjectClicked){
             isProjectClicked = false
         }
-
+        let projOrDeptName = this.props.projectName;
+        if( projOrDeptName === "PEOPLE OPERATIONS" ){
+            projOrDeptName = "POPS" ;
+        }
+        console.log("project name ", this.props.projectName);
         let categories = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
         return (
             <div className="displayProjCol slide-in-fwd-center">
-                <a  onClick={()=>this.displaySpecificProject(this.props.projectName,isProjectClicked)}>
+                <a  onClick={()=>this.displaySpecificProject(projOrDeptName,isProjectClicked)}>
                     <table className="table table-dark">
                         <thead>
                         <tr>
@@ -421,7 +425,7 @@ class AllProjOrDeptDetails extends React.Component{
             label = label + ( this.props.periodData.week === ""  ? "" : " / " + this.props.periodData.week  )
         }
         else{
-            label = label+"Year to Date - "+"Aug 17th,"+ new Date().getFullYear();
+            label = label+"Year to Date - "+"Aug 24th,"+ new Date().getFullYear();
         }
         let employeeHours;
         let projectOrDeptList;
